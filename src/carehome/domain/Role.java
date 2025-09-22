@@ -1,2 +1,7 @@
 package carehome.domain;
-public enum Role { MANAGER, DOCTOR, NURSE }
+
+public enum Role {
+    MANAGER,
+    DOCTOR,
+    NURSE
+}
