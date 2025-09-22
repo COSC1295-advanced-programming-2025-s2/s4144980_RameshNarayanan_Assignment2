@@ -21,10 +21,20 @@ import java.util.List;
  */
 public class Demo {
 
-    public static void main(String[] args) {
-        // Persist across runs
-        Store db = Store.get();
-        Runtime.getRuntime().addShutdownHook(new Thread(db::save));
+	public static void main(String[] args) {
+	    // Persist across runs
+	    Store db = Store.get();
+	    Runtime.getRuntime().addShutdownHook(new Thread(db::save));
+
+	    // --- reset state for a clean demo run ---
+	    db.residents.clear();
+	    db.staff.clear();
+	    db.wards.clear();
+	    db.rooms.clear();
+	    db.beds.clear();
+	    db.prescriptions.clear();
+	    db.administrations.clear();
+	    db.logs.clear();
 
         Service svc = new Service();
 
@@ -78,7 +88,6 @@ public class Demo {
 
         // ----- Nurse moves resident at 14:30 (PM shift) -----
         LocalDateTime twoThirty = LocalDateTime.of(today, LocalTime.of(14, 30));
-        svc.allocateShift(mgr, nurse.id(), today, ShiftType.NURSE_PM);
         svc.moveResident(nurse, b1.id(), b2.id(), twoThirty);
 
         // ----- Verify resident location -----
