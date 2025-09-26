@@ -58,8 +58,8 @@ public class Demo {
         db.staff.put(mgr.id(), mgr);
         mgr.setPassword("admin");
 
-        Nurse nurse = new Nurse("N-1", "Nina Nurse");
-        Doctor doc  = new Doctor("D-1", "Dan Doctor");
+        Nurse nurse = new Nurse("N-1", "Nirush");
+        Doctor doc  = new Doctor("D-1", "Dani");
 
         svc.addStaff(mgr, nurse, "nurse");
         svc.addStaff(mgr, doc,   "doctor");
@@ -70,7 +70,7 @@ public class Demo {
         svc.allocateShift(mgr, doc.id(),   today, ShiftType.DOCTOR_1H);
 
         // ----- Add resident -----
-        Resident res = new Resident("R-1", "Bob Resident", Gender.M);
+        Resident res = new Resident("R-1", "Bhuvan", Gender.M);
         svc.addResidentToVacantBed(mgr, res, b1.id());
 
         // ----- Doctor attaches prescription (09:05) -----

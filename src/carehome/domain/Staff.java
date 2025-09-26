@@ -85,4 +85,10 @@ public abstract class Staff implements Serializable {
             || (pm && set.contains(ShiftType.NURSE_PM))
             || (doc && set.contains(ShiftType.DOCTOR_1H));
     }
+    
+    @Override
+    public String toString() {
+        return role() + "{" + id() + ": " + name() + "}";
+    }
+
 }
